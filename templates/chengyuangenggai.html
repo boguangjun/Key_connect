@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>变更成员信息</title>
+</head>
+<body>
+    <h1>变更成员信息</h1>
+    <a href="/chengyuan_list"><button>返回</button></a>
+    <form method="post" enctype="multipart/form-data" action="/change_chengyuan_ok">
+        <label for="c_id">成员id:</label>
+        <input type="text" name="c_id" placeholder={{c_id}} value={{c_id}}><br><br>
+        <label for="qq">qq号:</label>
+        <input type="text" name="qq" placeholder={{qq}} value={{qq}}><br><br>
+        <label for="email">邮箱:</label>
+        <input type="text" name="email" placeholder={{email}} value={{email}}><br><br>
+        <label for="tel">电话:</label>
+        <input type="text" name="tel" placeholder={{tel}} value={{tel}}><br><br>
+        <label for="oth">其他联系方式:</label>
+        <input type="text" name="oth" placeholder={{oth}} value={{oth}}><br><br>
+        <!-- 文件上传字段 -->
+        <label for="image">头像:</label>
+        <input type="file" name="image" accept="image/*"><br><br>
+        <!-- 用于显示已选择的图片 -->
+        <label for="yuantouxiang">原有头像:</label>
+        <img id="preview" src="data:image/png;base64,{{touxiang}}" alt="图片"><br><br>
+        <button type="submit">提交</button>
+    </form>
+    <a href="/chengyuan_list"><button>返回</button></a>
+</body>
+</html>

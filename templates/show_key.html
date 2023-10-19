@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/01.css') }}">
+<head>
+    <title>兑换码详情</title>
+</head>
+<body>
+    <h1>兑换码详情</h1>
+    <p>兑换码编号: {{ duihuanmahao }}</p>
+    <p>兑换码: {{ duihuanma }}</p>
+    <p>游戏: {{ youxi }}</p>
+    <p>是否被领取: {{ shifoulingqu }}</p>
+    <p>领取人: {{ lingquren }}</p>
+    <p>领取人是否给出评测: {{ pingce }}</p>
+    <p>steam评测地址: {{ pingcewz }}</p>
+    <a href="/duihuanzhuangtaibiangeng/{{ duihuanmahao }}"><button>兑换码状态变更</button></a>
+    <a href="/"><button>返回游戏列表界面</button></a>
+    <a href="/details/{{ youxi }}"><button>返回游戏界面</button></a>
+</body>
+</html>

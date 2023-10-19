@@ -1,0 +1,13 @@
+.bordered-table {
+    border: 1px solid #000; /* 添加1像素的黑色边框 */
+    border-collapse: collapse; /* 合并边框，使其看起来更整齐 */
+    width: 100%; /* 设置表格宽度为100%（可选） */
+}
+
+.bordered-table th, .bordered-table td {
+    border: 1px solid #000; /* 添加单元格的边框 */
+    padding: 8px; /* 添加单元格内边距，使内容看起来更美观 */
+}
+table img {
+    height: 100px; /* 设置图片高度为 100像素 */
+}

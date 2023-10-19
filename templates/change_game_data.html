@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>变更游戏信息</title>
+</head>
+<body>
+    <h3>变更游戏信息</h3>
+    <h1>{{name}}</h1>
+    <a href="/details/{{name}}"><button>返回</button></a>
+    <form method="post" enctype="multipart/form-data" action="/change_game_ok">
+        <label for="name">游戏名（这个不要动，去掉以后出问题）</label>
+        <input type="text" name="name" placeholder={{name}} value={{name}}><br><br>
+        <label for="lianxiduixiang">联系对象:</label>
+        <input type="text" name="lianxiduixiang" placeholder={{lianxiduixiang}} value={{lianxiduixiang}}><br><br>
+        <label for="lianxifangshi">联系方式:</label>
+        <input type="text" name="lianxifangshi" placeholder={{lianxifangshi}} value={{lianxifangshi}}><br><br>
+        <label for="beizhu">电话:</label>
+        <input type="text" name="beizhu" placeholder={{beizhu}} value={{beizhu}}><br><br>
+        <!-- 文件上传字段 -->
+        <label for="image">头像:</label>
+        <input type="file" name="image" accept="image/*"><br><br>
+        <!-- 用于显示已选择的图片 -->
+        <label for="yuantouxiang">原有头像:</label>
+        <img id="preview" src="data:image/png;base64,{{tupian}}" alt="图片"><br><br>
+        <button type="submit">提交</button>
+    </form>
+    <a href="/details/{{name}}"><button>返回</button></a>
+</body>
+</html>

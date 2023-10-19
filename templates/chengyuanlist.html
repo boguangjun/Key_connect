@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/01.css') }}">
+<head>
+    <title>所有成员一览</title>
+</head>
+<body>
+    <h1>所有成员一览</h1>
+    <a href="/"><button>返回</button></a>
+    <a href="/add_chengyuan"><button>添加成员</button></a>
+    <table class="bordered-table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>成员详情</th>
+                <th>头像</th>
+                <th>qq号</th>
+                <th>邮箱</th>
+                <th>电话号码</th>
+                <th>其他联系方式</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in chengyuan_data.iterrows() %}
+                <tr>
+                    <td>{{ row[1]['id'] }}</td>
+                    <td><a href="/chengyuan_xinxi/{{ row[1]['id'] }}"><button>详情</button></a>
+                    <td><img src="data:image/png;base64,{{ image_to_base64(row[1]['头像']) }}" alt="图片"></td>
+                    <td>{{ row[1]['qq号'] }}</td>
+                    <td>{{ row[1]['邮箱'] }}</td>
+                    <td>{{ row[1]['电话号码'] }}</td>
+                    <td>{{ row[1]['其他联系方式'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/"><button>返回</button></a>
+    <a href="/add_chengyuan_xls"><button>添加成员</button></a>
+    <!-- 这里可以添加其他项目详情 -->
+</body>
+</html>

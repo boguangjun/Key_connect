@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加成员</title>
+</head>
+<body>
+    <h1>添加成员</h1>
+    <form method="post" enctype="multipart/form-data" action="/add_chengyuan_xls">
+        <label for="c_id">成员id(注意不要有空格，否则删不了，得去表格里面删):</label>
+        <input type="text" name="c_id" required><br><br>
+        <label for="qq">qq号:</label>
+        <input type="text" name="qq"><br><br>
+        <label for="email">邮箱:</label>
+        <input type="text" name="email"><br><br>
+        <label for="tel">电话:</label>
+        <input type="text" name="tel"><br><br>
+        <label for="oth">其他联系方式:</label>
+        <input type="text" name="oth"><br><br>
+        <label for="image">上传头像</label>
+        <input type="file" name="image" accept="image/*" required><br><br>
+        <button type="submit">提交</button>
+    </form>
+    <a href="/chengyuan_list"><button>返回</button></a>
+</body>
+</html>

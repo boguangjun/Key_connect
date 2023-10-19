@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/01.css') }}">
+<head>
+    <title>所有的游戏委托</title>
+</head>
+<body>
+    <h1>所有的游戏委托</h1>
+    <a href="/key_page"><button>查看所有的兑换码</button></a>
+    <a href="/chengyuan_list"><button>查看所有的成员</button></a>
+    <a href="/add_data"><button>添加游戏</button></a>
+    </form>
+    <table class="bordered-table">
+        <thead>
+            <tr>
+                <th>名字</th>
+                <th>图片</th>
+                <th>详情</th>
+                <th>联系对象</th>
+                <th>联系方式</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table_data.iterrows() %}
+                <tr>
+                    <td>{{ row[1]['Name'] }}</td>
+                    <td><img src="data:image/png;base64,{{ image_to_base64(row[1]['Data']) }}" alt="图片"></td>
+                    <td><a href="/details/{{ row[1]['Name'] }}"><button>详情</button></a>
+                    <td>{{ row[1]['联系对象'] }}</td>
+                    <td>{{ row[1]['联系方式'] }}</td>
+                    <td>{{ row[1]['备注'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/add_data"><button>添加游戏</button></a>
+    <a href="/key_page"><button>查看所有的兑换码</button></a>
+    <a href="/chengyuan_list"><button>查看所有的成员</button></a>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>变更兑换码数据</title>
+</head>
+<body>
+    <h2>变更兑换码数据</h2>
+    <h2>{{duihuanmahao}}</h2>
+    <form method="post" enctype="multipart/form-data" action="/duihuanmabiangeng">
+        <label for="duihuanmahao">兑换码编号（这个不要动，靠这个索引的去掉以后出问题）:</label>
+        <input type="text" name="duihuanmahao" placeholder={{duihuanmahao}} value={{duihuanmahao}}><br><br>
+        <label for="duihuanma">兑换码:</label>
+        <input type="text" name="duihuanma" placeholder={{duihuanma}} value={{duihuanma}}><br><br>
+        <label for="youxi">游戏:</label>
+        <input type="text" name="youxi" placeholder={{youxi}} value={{youxi}}><br><br>
+        <label for="shifoulingqu">是否被领取:</label>
+        <select name="shifoulingqu" id="shifoulingqu">
+            <option value="是" {% if shifoulingqu == '是' %}selected{% endif %}>是</option>
+            <option value="否" {% if shifoulingqu == '否' %}selected{% endif %}>否</option>
+        </select><br><br>
+        <label for="lingquren">领取人:</label>
+        <select name="lingquren" id="lingquren">
+            {% for row in char_list.iterrows() %}
+                <option value="{{ row[1]['id'] }}" {% if row[1]['id'] == lingquren %}selected{% endif %}>{{ row[1]['id'] }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="pingce">领取人是否给出评测:</label>
+        <select name="pingce" id="pingce">
+            <option value="是" {% if pingce == '是' %}selected{% endif %}>是</option>
+            <option value="否" {% if pingce == '否' %}selected{% endif %}>否</option>
+        </select><br><br>
+        <label for="pingcewz">steam评测地址:</label>
+        <input type="text" name="pingcewz" placeholder={{pingcewz}} value={{pingcewz}}><br><br>
+        <button type="submit">提交</button>
+    </form>
+    <a href="/"><button>返回</button></a>
+</body>
+</html>

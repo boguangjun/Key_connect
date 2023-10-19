@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>添加兑换码</title>
+</head>
+<body>
+    <h1>添加兑换码</h1>
+    <a href="/"><button>返回</button></a>
+    <form method="post" enctype="multipart/form-data" action="/add_keys_submit">
+        <label for="keybianhao">兑换码编号:</label>
+        <input type="text" name="keybianhao" placeholder={{keybianhao}} value={{keybianhao}}><br><br>
+        <label for="key">兑换码:</label>
+        <input type="text" name="key" required><br><br>
+        <label for="game_add_key">游戏:</label>
+        <input type="text" name="game_add_key" placeholder={{game_add_key}} value={{game_add_key}}><br><br>
+        <label for="shifoulngqu">是否被领取:</label>
+        <select name="shifoulingqu" id="shifoulingqu">
+            <option value="是" {% if shifoulingqu == '是' %}selected{% endif %}>是</option>
+            <option value="否" {% if shifoulingqu == '否' %}selected{% endif %}>否</option>
+        </select><br><br>
+        <label for="lingquren">领取人:</label>
+        <select name="lingquren" id="lingquren">
+            {% for row in char_list.iterrows() %}
+                <option value="{{ row[1]['id'] }}" {% if row[1]['id'] == lingquren %}selected{% endif %}>{{ row[1]['id'] }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="pc">领取人是否给出评测:</label>
+        <select name="pc" id="pc">
+            <option value="是" {% if pc == '是' %}selected{% endif %}>是</option>
+            <option value="否" {% if pc == '否' %}selected{% endif %}>否</option>
+        </select><br><br>
+        <label for="pcdizhi">steam评测地址:</label>
+        <input type="text" name="pcdizhi" placeholder={{pcdizhi}} value={{pcdizhi}}><br><br>
+        <button type="submit">提交</button>
+</body>
+</html>

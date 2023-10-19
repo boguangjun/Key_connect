@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/01.css') }}">
+<head>
+    <title>项目详情</title>
+</head>
+<body>
+    <h1>项目详情</h1>
+    <p>项目名称: {{ name }}</p>
+    <img src="data:image/png;base64,{{ data_base64 }}" alt="图片">
+    <a href="/change_game_data/{{ name }}"><button>更改游戏信息</button></a>
+    <a href="/delete_game_data_confirm/{{ name }}"><button>删除游戏</button></a>
+    <a href="/add_keys_confirm/{{ name }}"><button>添加游戏兑换码</button></a>
+    <a href="/"><button>返回</button></a>
+
+    <table class="bordered-table">
+        <thead>
+            <tr>
+                <th>兑换码编号</th>
+                <th>兑换码详情</th>
+                <th>兑换码</th>
+                <th>是否被领取</th>
+                <th>领取人</th>
+                <th>领取人是否给出评测</th>
+                <th>steam评测地址</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in key_gameI.iterrows() %}
+                <tr>
+                    <td>{{ row[1]['兑换码编号'] }}</td>
+                    <td><a href="/duihuanmaxiangqing/{{ row[1]['兑换码编号'] }}"><button>详情</button></a>
+                    <td>{{ row[1]['兑换码'] }}</td>
+                    <td>{{ row[1]['是否被领取'] }}</td>
+                    <td>{{ row[1]['领取人'] }}</td>
+                    <td>{{ row[1]['领取人是否给出评测'] }}</td>
+                    <td>{{ row[1]['steam评测地址'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- 这里可以添加其他项目详情 -->
+</body>
+</html>
